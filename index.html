@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWXGames | @BN_LOS</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    .card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+    .btn-download {
+      font-size: 1.125rem; /* Larger font */
+      padding: 0.75rem 1.25rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <!-- Container -->
+  <div class="container mx-auto p-8">
+
+    <!-- Sorting and Search Bar -->
+    <div class="flex justify-center items-center mb-6 space-x-4">
+      <!-- Sorting Select Menu -->
+      <div class="flex items-center">
+        <label for="sort-select" class="text-lg font-semibold mr-2">Sort by:</label>
+        <select id="sort-select" class="select select-bordered w-auto">
+          <option value="asc">A-Z</option>
+          <option value="desc">Z-A</option>
+        </select>
+      </div>
+      
+      <div class="w-full md:w-1/3">
+        <input type="text" id="search-bar" placeholder="Search projects..." class="input input-bordered" />
+      </div>
+    </div>
+    
+    <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    </div>
+  </div>
+
+  <div id="credits-modal" class="modal">
+    <div class="modal-box">
+      <h2 class="text-xl text-center font-semibold">Credits</h2>
+      <p id="credits-content">Here will be the credits...</p>
+      <div class="modal-action">
+        <button class="btn" id="close-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let projects = [];
+
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        projects = data;
+        displayProjects(projects);
+        
+        document.getElementById('sort-select').addEventListener('change', (e) => {
+          const sortedProjects = sortProjects(e.target.value);
+          displayProjects(sortedProjects);
+        });
+
+        document.getElementById('search-bar').addEventListener('input', (e) => {
+          const filteredProjects = filterProjects(e.target.value);
+          displayProjects(filteredProjects);
+        });
+      })
+      .catch(error => console.error('Error loading JSON data:', error));
+
+    function displayProjects(projects) {
+      const projectGrid = document.getElementById('project-grid');
+      projectGrid.innerHTML = '';
+
+      projects.forEach(project => {
+        const card = document.createElement('div');
+        card.classList.add('card', 'bg-white', 'shadow-lg', 'rounded-lg', 'overflow-hidden', 'relative', 'text-center');
+        
+        // Replace newline characters with <br> for rendering in HTML
+        const descWithNewlines = project.desc.replace(/\n/g, '<br>');
+        const quotaWithNewlines = project.quota.replace(/\n/g, '<br>');
+        
+        card.innerHTML = `
+          <div class="relative">
+            <img src="${project.imgheader}" alt="${project.title}" class="w-full h-64 object-cover rounded-t-lg">
+            <div class="absolute inset-0 bg-black bg-opacity-30 hover:bg-opacity-50 transition-opacity"></div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">${project.title}</h3>
+            <p class="text-sm text-gray-500 mb-4">${descWithNewlines}</p>
+            
+            <!-- Badge for Build ID (now labeled as version) -->
+            <span class="badge badge-outline">Build: ${project.version}</span>
+
+            <!-- Badge for Size -->
+            <span class="badge badge-outline">Size: ${project.size}</span>
+            
+            <!-- Buttons Layout -->
+            <div class="flex justify-between items-center mb-4">
+              <!-- Left-side buttons (Store Page, Patch Notes, Credits) -->
+              <div class="space-x-2">
+                ${project.storepage ? `<a href="${project.storepage}" class="btn btn-outline btn-sm">Store Page</a>` : ''}
+                ${project.patchnotes ? `<a href="${project.patchnotes}" class="btn btn-outline btn-sm">Patch Notes</a>` : ''}
+                <button class="btn btn-outline btn-sm" data-title="${project.title}" data-quota="${quotaWithNewlines}" onclick="openCreditsModal(event)">Credits</button>
+              </div>
+
+              <!-- Right-side button (Download) -->
+              <a href="${project.downloadlink}" class="btn btn-download btn-outline">Download</a>
+            </div>
+          </div>
+        `;
+
+        if (project.imgbg) {
+          card.style.backgroundImage = `url(${project.imgbg})`;
+          card.style.backgroundSize = 'cover';
+          card.style.transition = 'background-color 0.3s ease';
+          card.classList.add('hover:bg-opacity-50');
+
+          card.addEventListener('mouseenter', () => {
+            card.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+          });
+
+          card.addEventListener('mouseleave', () => {
+            card.style.backgroundColor = 'transparent';
+          });
+        }
+
+        projectGrid.appendChild(card);
+      });
+    }
+
+    function sortProjects(order) {
+      return projects.slice().sort((a, b) => {
+        if (order === 'asc') {
+          return a.title.localeCompare(b.title);
+        } else {
+          return b.title.localeCompare(a.title);
+        }
+      });
+    }
+
+    function filterProjects(query) {
+      return projects.filter(project => 
+        project.title.toLowerCase().includes(query.toLowerCase())
+      );
+    }
+
+    function openCreditsModal(event) {
+      const button = event.target;
+      const credits = button.getAttribute('data-quota');
+      const title = button.getAttribute('data-title');
+
+      // Display the credits in the modal
+      const creditsContent = document.getElementById('credits-content');
+      creditsContent.innerHTML = `${credits}`;
+
+      // Open the modal
+      const modal = document.getElementById('credits-modal');
+      modal.classList.add('modal-open');
+    }
+
+    // Close the modal when the close button is clicked
+    document.getElementById('close-modal').addEventListener('click', () => {
+      const modal = document.getElementById('credits-modal');
+      modal.classList.remove('modal-open');
+    });
+  </script>
+
+</body>
+</html>
