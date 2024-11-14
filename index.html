@@ -8,6 +8,51 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Ensure full height for the page */
+    html, body {
+      height: 100%;
+      margin: 0;  /* Remove default margin */
+      position: relative;  /* To use absolute positioning for the background */
+      overflow-x: hidden;  /* To prevent horizontal overflow */
+    }
+
+    /* Background image */
+    body {
+      background-image: url('src/img/background.jpg'); /* Background image */
+      background-size: cover;            /* Ensure background covers the whole screen */
+      background-position: center;       /* Center the background image */
+      background-repeat: no-repeat;      /* Prevent the background from repeating */
+      background-attachment: fixed;      /* This makes the background scroll with the page (parallax effect) */
+      z-index: -1;  /* Keep the background layer below all other content */
+    }
+
+    /* Create a new layer for the background */
+    .background-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;  /* Put it behind all other elements */
+      pointer-events: none;  /* Ensure it doesn't interfere with interactions */
+    }
+
+    /* Optional: Parallax effect for the hero section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 50vh;
+      z-index: 1; /* Above the background */
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 700px;
+    }
+
+    /* Font for Biohazard style */
     @font-face {
       font-family: 'Biohazard';
       src: url('src/font/Biohazard.otf') format('opentype');
@@ -19,27 +64,11 @@
       font-family: 'Biohazard', sans-serif;
     }
 
-    /* Ensure background image applies to the entire page */
-    html, body {
-      height: 100%;                      /* Ensure full height for the entire page */
-      margin: 0;                         /* Remove default margin */
-    }
-
-    body {
-      background-image: url('src/img/background.jpg'); /* Background image */
-      background-size: cover;            /* Ensure background covers the whole screen */
-      background-position: center;       /* Center the background image */
-      background-repeat: no-repeat;      /* Prevent the background from repeating */
-      background-attachment: scroll;     /* This makes the background scroll with the page */
-    }
-
-    /* Optional: Parallax effect - if you'd like a fixed background effect */
-    /* body.parallax {
-      background-attachment: fixed;      Optional for parallax effect.
-    }*/
-
+    /* Card hover effects */
     .card {
       transition: transform 0.3s ease, background-color 0.3s ease;
+      position: relative; /* Make sure the card is on top of the background */
+      z-index: 10;  /* Make sure cards are above background */
     }
 
     .card:hover {
@@ -47,31 +76,39 @@
       background-color: rgba(0, 0, 0, 0.1);
     }
 
+    /* Button size */
     .btn-download {
       font-size: 1.125rem;
       padding: 0.75rem 1.25rem;
     }
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 50vh;
+    .container {
+      max-width: 100%;
     }
 
-    .hero-content {
-      text-align: center;
-      max-width: 700px;
+    /* Make sure modal takes up the full screen */
+    .modal-box {
+      max-width: 600px;
+      width: 100%;
     }
 
-    html, body {
-      height: 100%;
-      margin: 0;
+    /* Styling for inputs and select */
+    input, select {
+      max-width: 300px;
+    }
+
+    /* Mobile support for background-attachment */
+    @media (max-width: 768px) {
+      body {
+        background-attachment: scroll;  /* Disable parallax on mobile */
+      }
     }
   </style>
 </head>
 <body class="flex flex-col items-center min-h-screen">
+
+  <!-- Background Layer -->
+  <div class="background-layer"></div>
 
   <div class="hero w-full">
     <div class="hero-content">
@@ -102,6 +139,7 @@
     </div>
     
     <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Projects will be loaded here dynamically -->
     </div>
 
     <div id="loading" class="text-center mt-4 hidden">Loading projects...</div>
