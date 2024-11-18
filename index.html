@@ -209,8 +209,8 @@
         }
 
         if (project.desc) {
-          const descWithNewlines = project.desc.replace(/\n/g, '<br>');
-          cardContent += `<p class="text-sm text-gray-500 mb-4 text-center">${descWithNewlines}</p>`;
+          const descWithBreaks = project.desc.replace(/\n/g, '<br>');
+          cardContent += `<p class="text-sm text-gray-500 mb-4 text-center">${descWithBreaks}</p>`;
         }
 
         if (project.version) {
@@ -281,8 +281,8 @@
       const credits = button.getAttribute('data-credits');
       const notes = button.getAttribute('data-notes');
 
-      document.getElementById('credits-content').innerHTML = credits || 'No credits available';
-      document.getElementById('notes-content').innerHTML = notes || 'No notes available';
+      document.getElementById('credits-content').innerHTML = credits ? credits.replace(/\n/g, '<br>') : 'No credits available';
+      document.getElementById('notes-content').innerHTML = notes ? notes.replace(/\n/g, '<br>') : 'No notes available';
 
       const modal = document.getElementById('credits-modal');
       modal.classList.add('modal-open');
