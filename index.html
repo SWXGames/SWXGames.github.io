@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="forest">
+<html lang="en" data-theme="luxury">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,43 +8,39 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Ensure full height for the page */
     html, body {
       height: 100%;
-      margin: 0;  /* Remove default margin */
-      position: relative;  /* To use absolute positioning for the background */
-      overflow-x: hidden;  /* To prevent horizontal overflow */
+      margin: 0;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* Background image */
     body {
-      background-image: url('src/img/background.jpg'); /* Background image */
-      background-size: cover;            /* Ensure background covers the whole screen */
-      background-position: center;       /* Center the background image */
-      background-repeat: no-repeat;      /* Prevent the background from repeating */
-      background-attachment: fixed;      /* This makes the background scroll with the page (parallax effect) */
-      z-index: -1;  /* Keep the background layer below all other content */
+      background-image: url('src/img/background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      z-index: -1;
     }
 
-    /* Create a new layer for the background */
     .background-layer {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: -1;  /* Put it behind all other elements */
-      pointer-events: none;  /* Ensure it doesn't interfere with interactions */
+      z-index: -1;
+      pointer-events: none;
     }
 
-    /* Optional: Parallax effect for the hero section */
     .hero {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 50vh;
-      z-index: 1; /* Above the background */
+      z-index: 1;
     }
 
     .hero-content {
@@ -52,7 +48,6 @@
       max-width: 700px;
     }
 
-    /* Font for Biohazard style */
     @font-face {
       font-family: 'Biohazard';
       src: url('src/font/Biohazard.otf') format('opentype');
@@ -64,11 +59,10 @@
       font-family: 'Biohazard', sans-serif;
     }
 
-    /* Card hover effects */
     .card {
       transition: transform 0.3s ease, background-color 0.3s ease;
-      position: relative; /* Make sure the card is on top of the background */
-      z-index: 10;  /* Make sure cards are above background */
+      position: relative;
+      z-index: 10;
     }
 
     .card:hover {
@@ -76,7 +70,6 @@
       background-color: rgba(0, 0, 0, 0.1);
     }
 
-    /* Button size */
     .btn-download {
       font-size: 1.125rem;
       padding: 0.75rem 1.25rem;
@@ -86,34 +79,30 @@
       max-width: 100%;
     }
 
-    /* Make sure modal takes up the full screen */
     .modal-box {
       max-width: 600px;
       width: 100%;
     }
 
-    /* Styling for inputs and select */
     input, select {
       max-width: 300px;
     }
 
-    /* Mobile support for background-attachment */
     @media (max-width: 768px) {
       body {
-        background-attachment: scroll;  /* Disable parallax on mobile */
+        background-attachment: scroll;
       }
     }
   </style>
 </head>
 <body class="flex flex-col items-center min-h-screen">
 
-  <!-- Background Layer -->
   <div class="background-layer"></div>
 
-  <div class="hero w-full">
-    <div class="hero-content">
+  <div class="hero min-h-screen">
+    <div class="hero-content text-center">
       <div class="max-w-md">
-        <h1 class="text-5xl BiohazardF">SWXGames</h1>
+          <h1 class="text-5xl BiohazardF">SWXGames</h1>
         <p class="py-6">
           All of My Uploads in One Place.<br>
           Q: Who am I?<br>
@@ -139,7 +128,6 @@
     </div>
     
     <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Projects will be loaded here dynamically -->
     </div>
 
     <div id="loading" class="text-center mt-4 hidden">Loading projects...</div>
@@ -210,7 +198,7 @@
         if (project.imgheader) {
           cardContent += `
             <img src="${project.imgheader}" alt="${project.title || 'Project Image'}" class="w-full h-full object-cover rounded-l-lg" loading="lazy">
-            <div class="absolute inset-0 bg-opacity-30 hover:bg-opacity-50 transition-opacity"></div>
+            <div class="absolute inset-0"></div>
           `;
         }
 
