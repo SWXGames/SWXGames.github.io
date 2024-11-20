@@ -7,7 +7,7 @@
       "downloadlink": "https://cdn3.filehaus.su/files/1731358507_19563/Clothing_Store_Simulator.7z",
       "storepage": "https://store.steampowered.com/app/2923390/",
       "patchnotes": "https://steamdb.info/app/2923390/patchnotes/",
-      "credits": "Files by ME,\nCrack by Mr_Goldberg,\nSteamless by atom0s",
+      "credits": "Files by ME,\nSteamless by atom0s,\nCrack by Mr_Goldberg.",
       "notes": "Start the game with Loader.exe",
       "version": "16311788",
       "size": "5.13GB"
@@ -20,7 +20,7 @@
       "downloadlink": "https://cdn5.filehaus.su/files/1731360539_74727/Mad_Games_Tycoon_2.7z",
       "storepage": "https://store.steampowered.com/app/1342330/",
       "patchnotes": "https://steamdb.info/app/1342330/patchnotes/",
-      "credits": "Files by GodPigeon,\nUpdate by Mart1z\nCrack by Mr_Goldberg,\nSteamless by atom0s",
+      "credits": "Files by GodPigeon,\nUpdate by Mart1z,\nSteamless by atom0s,\nCrack by Mr_Goldberg.",
       "notes": "Start the game with Loader.exe",
       "version": "14182136",
       "size": "1.23GB"
@@ -33,7 +33,7 @@
       "downloadlink": "https://cdn3.filehaus.su/files/1731386538_85397/Outlast.7z",
       "storepage": "https://store.steampowered.com/app/238320/",
       "patchnotes": "https://steamdb.info/app/238320/patchnotes/",
-      "credits": "Files by ME,\nCrack by Mr_Goldberg,",
+      "credits": "Files by ME,\nCrack by Mr_Goldberg.",
       "notes": "Start the game with Loader.exe",
       "version": "576074",
       "size": "5.87GB"
@@ -46,7 +46,7 @@
       "downloadlink": "https://cdn5.filehaus.su/files/1731413069_91632/Resident_Evil_3.7z",
       "storepage": "https://store.steampowered.com/app/952060/",
       "patchnotes": "https://steamdb.info/app/952060/patchnotes/",
-      "credits": "Files by ME,\nCrack by Mr_Goldberg,\nSteamless by atom0s",
+      "credits": "Files by ME,\nSteamless by atom0s,\nCrack by Mr_Goldberg.",
       "notes": "Start the game with Loader.exe",
       "version": "11047294",
       "size": "22.6GB"
@@ -60,7 +60,7 @@
       "downloadlink": "https://cdn5.filehaus.su/files/1731910906_66456/Resident_Evil_2.7z",
       "storepage": "https://store.steampowered.com/app/883710/",
       "patchnotes": "https://steamdb.info/app/883710/patchnotes/",
-      "credits": "Files by ME,\nDLCs by Axius Victor,\nCrack by Mr_Goldberg,\nSteamless by atom0s",
+      "credits": "Files by ME,\nDLCs by Axius Victor,\nSteamless by atom0s,\nCrack by Mr_Goldberg.",
       "notes": "Start the game with Loader.exe",
       "version": "11055033",
       "size": "25GB"
@@ -102,7 +102,7 @@
       "downloadlink": "https://cdn5.filehaus.su/files/1731936038_45863/Trepang2.7z",
       "storepage": "https://store.steampowered.com/app/1164940/",
       "patchnotes": "https://steamdb.info/app/1164940/patchnotes/",
-      "credits": "Files by Gh0sT73,\nCrack by Mr_Goldberg,\nSteamless by atom0s",
+      "credits": "Files by Gh0sT73,\nSteamless by atom0s,\nCrack by Mr_Goldberg.",
       "notes": "Start the game with Loader.exe",
       "version": "15205727",
       "size": "33GB"
@@ -121,6 +121,32 @@
       "version": "16262651",
       "size": "7GB"
       
+    },
+    {
+      "title": "Resident Evil 4 (2005)",
+      "desc": "(Release: 2014) Special agent Leon S. Kennedy is sent on a mission to rescue the U.S. President’s daughter who has been kidnapped.",
+      "imgheader": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/254700/library_600x900_2x.jpg",
+      "imgbg": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/254700/page_bg_raw.jpg",
+      "downloadlink": "",
+      "storepage": "https://store.steampowered.com/app/254700/",
+      "patchnotes": "https://steamdb.info/app/254700/patchnotes/",
+      "credits": "Files by ME,\nCrack by Mr_Goldberg.",
+      "notes": "Start the game with Loader.exe",
+      "version": "10112090",
+      "size": "13GB"
+    },
+    {
+      "title": "Police Simulator: Patrol Officers",
+      "desc": "Welcome to Brighton! Join the police force of this fictitious American city and experience the day to day life of a police officer.",
+      "imgheader": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/997010/library_600x900_2x.jpg",
+      "imgbg": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/997010/page_bg_raw.jpg",
+      "downloadlink": "https://cdn5.filehaus.su/files/1732056225_90270/Police_Simulator_Patrol_Officers.7z",
+      "storepage": "https://store.steampowered.com/app/997010/",
+      "patchnotes": "https://steamdb.info/app/997010/patchnotes/",
+      "credits": "Files by ME,\nSteamless by atom0s,\nCrack by Mr_Goldberg.",
+      "notes": "Start the game with Loader.exe",
+      "version": "15851450",
+      "size": "12.4GB"
     }
 
   ]
