@@ -102,7 +102,7 @@
   <div class="hero min-h-screen">
     <div class="hero-content text-center">
       <div class="max-w-md">
-          <h1 class="text-5xl BiohazardF">swxgames </h1>
+        <h1 class="text-5xl BiohazardF">swxgames</h1>
         <p class="py-6">
           All of My Uploads in One Place.<br>
           Q: Who am I?<br>
@@ -114,6 +114,11 @@
 
   <div class="container mx-auto p-8 w-full">
     <div class="flex justify-center items-center mb-6 space-x-4">
+      <div class="flex items-center">
+        <label for="theme-select" class="text-lg font-semibold mr-2">Theme:</label>
+        <select id="theme-select" class="select select-bordered" aria-label="Select theme"></select>
+      </div>
+
       <div class="flex items-center">
         <label for="sort-select" class="text-lg font-semibold mr-2">Sort by:</label>
         <select id="sort-select" class="select select-bordered w-auto" aria-label="Sort projects">
@@ -153,6 +158,15 @@
 
   <script>
     let projects = [];
+    
+    const themes = [
+      "acid", "aqua", "autumn", "black", "bumblebee", "business", 
+      "coffee", "corporate", "cupcake", "cmyk", "dark", "dim", 
+      "dracula", "emerald", "fantasy", "forest", "garden", 
+      "halloween", "lemonade", "light", "lofi", "luxury", 
+      "night", "nord", "pastel", "retro", "sunset", 
+      "synthwave", "valentine", "winter", "wireframe", "zoom"
+    ].sort();
 
     function showLoading() {
       document.getElementById('loading').classList.remove('hidden');
@@ -161,6 +175,35 @@
     function hideLoading() {
       document.getElementById('loading').classList.add('hidden');
     }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      document.cookie = `theme=${theme}; path=/; max-age=${60 * 60 * 24 * 30}`;
+    }
+
+    function getTheme() {
+      const match = document.cookie.match(/theme=([^;]+)/);
+      return match ? match[1] : 'luxury';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeSelect = document.getElementById('theme-select');
+
+      themes.forEach(theme => {
+        const option = document.createElement('option');
+        option.value = theme;
+        option.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
+        themeSelect.appendChild(option);
+      });
+
+      const savedTheme = getTheme();
+      setTheme(savedTheme);
+      themeSelect.value = savedTheme;
+
+      themeSelect.addEventListener('change', (e) => {
+        setTheme(e.target.value);
+      });
+    });
 
     fetch('data.json')
       .then(response => {
