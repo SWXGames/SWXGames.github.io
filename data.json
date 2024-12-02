@@ -170,7 +170,7 @@
       "storepage": "https://store.steampowered.com/app/926990/",
       "patchnotes": "https://steamdb.info/app/926990/patchnotes/",
       "credits": "Files by ME,\nCrack (Offline) by Mr_Goldberg,\nCrack (Online) by Dead_LIFE",
-      "notes": "Two Cracks Available in --CrackOnly--.7z\n1. Mr_Goldberg (Offline)\nStart the game with Loader.exe as Administrator\n\n2. Online-fix.me by Dead_LIFE (Online)\nStart game with its EXE (WolfQuestAE.exe) as Administrator",
+      "notes": "Two Cracks Available in --CrackOnly--.7z\n1. Mr_Goldberg (Default Applied) (Offline)\nStart the game with Loader.exe as Administrator\n\n2. Online-fix.me by Dead_LIFE (Online)\nStart game with its EXE (WolfQuestAE.exe) as Administrator",
       "version": "14599736",
       "size": "13GB"
     },
@@ -212,6 +212,45 @@
       "notes": "Start the game with Loader.exe",
       "version": "15448238",
       "size": "957MB"
+    },
+    {
+      "title": "OPERATOR",
+      "desc": "In OPERATOR, you will play as an elite 'Tier 1' operator undergoing dangerous clandestine operations all over the globe. With a strategic, measured, and unforgiving style of gameplay. You are the tactical advantage, Good luck.",
+      "imgheader": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1913370/library_600x900_2x.jpg",
+      "imgbg": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1913370/page_bg_generated_v6b.jpg",
+      "downloadlink": "https://cdn5.filehaus.su/files/1733112859_84797/OPERATOR.7z",
+      "storepage": "https://store.steampowered.com/app/1913370/",
+      "patchnotes": "https://steamdb.info/app/1913370/patchnotes/",
+      "credits": "Files by ME,\nCrack (Offline) by Mr_Goldberg,\nCrack (Online) by Maki Nishikino",
+      "notes": "Two Cracks Available in --CrackOnly--.7z\n1. Mr_Goldberg (Default Applied) (Offline)\nStart the game with Loader.exe as Administrator\n\n2. Online-fix.me by Maki Nishikino (Online)\nStart game with its EXE (OPERATOR.exe) as Administrator",
+      "version": "16092061",
+      "size": "27GB"
+    },
+    {
+      "title": "MudRunner",
+      "desc": "MudRunner is the ultimate off-road experience putting the players in the driver seat and dares them to take charge of incredible all-terrain vehicles, venturing across extreme Siberian landscapes with only a map and compass as guides!",
+      "imgheader": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/675010/library_600x900_2x.jpg",
+      "imgbg": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/675010/page_bg_generated_v6b.jpg",
+      "downloadlink": "https://cdn4.filehaus.su/files/1733068283_97215/MudRunner.7z",
+      "storepage": "https://store.steampowered.com/app/675010/",
+      "patchnotes": "https://steamdb.info/app/675010/patchnotes/",
+      "credits": "Files by ME,\nCrack by Mr_Goldberg.",
+      "notes": "Start the game with Loader.exe",
+      "version": "9640861",
+      "size": "1.38GB"
+    },
+    {
+      "title": "Assassin’s Creed® Liberation HD",
+      "desc": "Introducing Assassin’s Creed® Liberation HD, the striking chapter of the pre-American Revolution Assassin’s Creed saga which arrives for the first time on HD consoles and PC. With improved gameplay, a deeper story, and HD graphics, Liberation is an immersive and full Assassin’s Creed experience.The year is 1765.",
+      "imgheader": "https://cdn2.steamgriddb.com/grid/f88920d4589dae7abec2eb05fca153e3.png",
+      "imgbg": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/260210/page_bg_generated_v6b.jpg",
+      "downloadlink": "https://cdn3.filehaus.su/files/1733133020_80820/Assassin_s_Creed_Liberation.7z",
+      "storepage": "https://store.steampowered.com/app/260210/",
+      "patchnotes": "https://steamdb.info/app/260210/patchnotes/",
+      "credits": "Files by ME,\nCrack (uPlay) by SKIDROW,\nCrack (Steam) by Mr_Goldberg.",
+      "notes": "- Start game with its EXE (ac3lhd_32.exe)\n\n- Saves are Created in %Gamedirectory% > Saves",
+      "version": "11568491",
+      "size": "2.99GB"
     }
   ]
   
