@@ -251,6 +251,19 @@
       "notes": "- Start game with its EXE (ac3lhd_32.exe)\n\n- Saves are Created in %Gamedirectory% > Saves",
       "version": "11568491",
       "size": "2.99GB"
+    },
+    {
+      "title": "Lethal Company",
+      "desc": "A co-op horror about scavenging at abandoned moons to sell scrap to the Company.",
+      "imgheader": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1966720/library_600x900_2x.jpg",
+      "imgbg": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1966720/page_bg_generated_v6b.jpg",
+      "downloadlink": "https://cdn4.filehaus.su/files/1733139618_62598/Lethal_Company.7z",
+      "storepage": "https://store.steampowered.com/app/1966720/",
+      "patchnotes": "https://steamdb.info/app/1966720/patchnotes/",
+      "credits": "Files by Lopsider,\nCrack (Offline) by Mr_Goldberg,\nCrack (Online) by Zeon_King",
+      "notes": "Two Cracks Available in --CrackOnly--.7z\n1. Mr_Goldberg (Default Applied) (Offline)\nStart the game with Loader.exe as Administrator\n\n2. Online-fix.me by Zeon_King (Online)\nStart game with its EXE (Lethal Company.exe) as Administrator",
+      "version": "16274733",
+      "size": "1.08GB"
     }
   ]
   
