@@ -136,14 +136,12 @@
         <input type="text" id="search-bar" placeholder="Search projects..." class="input input-bordered" aria-label="Search projects" />
       </div>
     </div>
-    
-    <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    </div>
 
+    <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     <div id="loading" class="text-center mt-4 hidden">Loading projects...</div>
   </div>
 
-  <div id="credits-modal" class="modal">
+  <dialog id="credits-modal" class="modal">
     <div class="modal-box">
       <h2 class="text-xl text-center font-semibold">Credits & Notes</h2>
       <div id="notes-section">
@@ -156,10 +154,24 @@
         <p id="credits-content">Here will be the credits...</p>
       </div>
       <div class="modal-action">
-        <button class="btn" id="close-modal">Close</button>
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
       </div>
     </div>
-  </div>
+  </dialog>
+
+  <dialog id="parts-modal" class="modal">
+    <div class="modal-box">
+      <h2 class="text-xl font-semibold">Download Parts</h2>
+      <div id="parts-content" class="grid justify-center mb-4"></div>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
 
   <footer class="footer bg-neutral text-neutral-content items-center p-4 relative bottom-0 left-0 w-full z-10">
     <aside class="grid-flow-col items-center">
@@ -167,11 +179,12 @@
       <p class="text text-lg">All files on this website are stored on third-party servers,<br>
         This website only provides links or access points to these files and is not responsible for their hosting.</p>
     </aside>
-  
+
     <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-      <a href="https://www.buymeacoffee.com/bn_los"><img src="https://img.buymeacoffee.com/button-api/?text=Click to Support ME&emoji=💸&slug=bn_los&button_colour=ffffff&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" /></a>    </nav>
+      <a href="https://www.buymeacoffee.com/bn_los"><img src="https://img.buymeacoffee.com/button-api/?text=Click to Support ME&emoji=💸&slug=bn_los&button_colour=ffffff&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=FFDD00" /></a>
+    </nav>
   </footer>
-  
+
   <script>
     let projects = [];
     
@@ -297,12 +310,15 @@
             onclick="openCreditsModal(event)">Credits & Notes</button>`;
         }
 
-        cardContent += `</div>`;
-
-        if (project.downloadlink) {
-          cardContent += `<a href="${project.downloadlink}" class="btn btn-outline btn-sm">Download</a>`;
+        if (project.isparts === "yes") {
+          cardContent += `<button class="btn btn-outline btn-sm" onclick="openPartsModal(${JSON.stringify(project).replace(/"/g, '&quot;')})">Download Parts</button>`;
+        } else {
+          if (project.downloadlink) {
+            cardContent += `<a href="${project.downloadlink}" class="btn btn-outline btn-sm">Download</a>`;
+          }
         }
 
+        cardContent += `</div>`;
         cardContent += `</div></div>`;
 
         card.innerHTML = cardContent;
@@ -335,6 +351,18 @@
       );
     }
 
+    function openPartsModal(project) {
+      const partsContent = document.getElementById('parts-content');
+      partsContent.innerHTML = `<a href="${project.part0}" class="btn btn-outline">Main</a><br><br>`;
+      for (let i = 1; i <= 6; i++) {
+        if (project[`part${i}`]) {
+          partsContent.innerHTML += `<a href="${project[`part${i}`]}" class="btn btn-outline">Part ${i}</a><br>`;
+        }
+      }
+      const modal = document.getElementById('parts-modal');
+      modal.showModal();
+    }
+
     function openCreditsModal(event) {
       const button = event.target;
       const credits = button.getAttribute('data-credits');
@@ -344,12 +372,13 @@
       document.getElementById('notes-content').innerHTML = notes ? notes.replace(/\n/g, '<br>') : 'No notes available';
 
       const modal = document.getElementById('credits-modal');
-      modal.classList.add('modal-open');
+      modal.showModal();
     }
 
-    document.getElementById('close-modal').addEventListener('click', () => {
-      const modal = document.getElementById('credits-modal');
-      modal.classList.remove('modal-open');
+    document.querySelectorAll('dialog').forEach(dialog => {
+      dialog.addEventListener('close', () => {
+        dialog.classList.remove('modal-open');
+      });
     });
   </script>
 </body>
